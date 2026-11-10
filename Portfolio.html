@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name ✦ Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Nunito:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#1c1423;--bg2:#251a2e;--card:#2b2036;--card2:#33253f;
+  --text:#f1e6f0;--muted:#b9a6c2;--rose:#e0a3b8;--blush:#f7c6d6;--lav:#c3b1ee;--orchid:#b57bc9;
+  --line:rgba(247,198,214,.16);--glow:0 8px 30px rgba(224,163,184,.28);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Nunito',system-ui,sans-serif;line-height:1.6;min-height:100vh;
+  background-image:
+   radial-gradient(900px 500px at 85% -10%,rgba(181,123,201,.22),transparent 60%),
+   radial-gradient(700px 500px at -10% 30%,rgba(224,163,184,.14),transparent 60%),
+   radial-gradient(1.5px 1.5px at 20% 30%,#fff8,transparent),radial-gradient(1.5px 1.5px at 70% 60%,#fff6,transparent),
+   radial-gradient(1px 1px at 40% 80%,#fff7,transparent),radial-gradient(1px 1px at 90% 20%,#fff7,transparent);
+  background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:'Caveat',cursive;font-weight:700;margin:0;line-height:1.1}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 5vw;background:rgba(28,20,35,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Pacifico',cursive;font-size:1.3rem;color:var(--blush)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:6px 14px;border-radius:999px;color:var(--muted);font-weight:600;font-size:.92rem;transition:.2s}
+nav a:hover{color:var(--blush);background:rgba(247,198,214,.08)}
+nav a.on{background:linear-gradient(135deg,var(--rose),var(--orchid));color:#2a1631}
+main{max-width:1050px;margin:0 auto;padding:40px 5vw 70px}
+.page{display:none;animation:fade .5s ease}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.h2{font-size:clamp(2.4rem,6vw,3.4rem);color:var(--blush);margin-bottom:6px}
+.sub{color:var(--muted);margin:0 0 26px}
+.hero{text-align:center;padding:36px 0 10px;position:relative}
+.moon{font-size:3rem;filter:drop-shadow(0 0 18px rgba(247,198,214,.6));animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.hero h1{font-size:clamp(3.4rem,11vw,6rem);background:linear-gradient(120deg,var(--blush),var(--lav),var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag-line{font-family:'Pacifico',cursive;color:var(--lav);font-size:clamp(1.1rem,3vw,1.5rem);margin:8px 0}
+.intro{max-width:560px;margin:10px auto;color:var(--muted)}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:24px 0}
+.btn{display:inline-block;padding:11px 24px;border-radius:999px;font-weight:700;border:1.5px solid var(--rose);cursor:pointer;font:inherit;font-weight:700;transition:.25s;color:var(--blush);background:transparent}
+.btn.fill{background:linear-gradient(135deg,var(--rose),var(--orchid));color:#2a1631;border-color:transparent}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--glow)}
+.about{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px 28px;margin:30px auto;max-width:700px;text-align:left}
+.about h3{font-size:2rem;color:var(--rose)}
+.pill{display:inline-block;padding:3px 12px;border-radius:999px;background:rgba(195,177,238,.14);color:var(--lav);font-size:.8rem;font-weight:700;border:1px solid rgba(195,177,238,.25)}
+.pill.pk{background:rgba(224,163,184,.14);color:var(--blush);border-color:rgba(224,163,184,.3)}
+.into{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:10px}
+.into b{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--rose);margin-right:4px}
+.into .pill{font-size:.92rem;padding:5px 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.card{background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:10px;transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--glow);border-color:rgba(247,198,214,.4)}
+.card h3{font-size:1.8rem;color:var(--blush)}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.date{font-size:.8rem;color:var(--orchid);font-weight:700;letter-spacing:.05em}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.more{margin-top:auto;color:var(--rose);font-weight:700}
+.more:hover{color:var(--blush)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.filters button{border:1.5px solid var(--line);background:transparent;color:var(--muted);padding:6px 16px;border-radius:999px;cursor:pointer;font:inherit;font-weight:600;font-size:.9rem;transition:.2s}
+.filters button:hover{border-color:var(--rose);color:var(--blush)}
+.filters button.on{background:var(--rose);color:#2a1631;border-color:var(--rose)}
+.links{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}
+.links .btn{padding:6px 16px;font-size:.85rem}
+.timeline{position:relative;padding-left:34px;max-width:720px}
+.timeline::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--rose),var(--lav),transparent)}
+.ach{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px 20px;margin-bottom:16px;transition:.25s}
+.ach:hover{box-shadow:var(--glow);transform:translateX(4px)}
+.ach .ic{position:absolute;left:-34px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--bg2);border:2px solid var(--rose);display:grid;place-items:center;font-size:.8rem}
+.ach h3{font-size:1.6rem;color:var(--blush)}
+.ach p{margin:2px 0 0;color:var(--muted);font-size:.93rem}
+.cwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}
+.socials{display:flex;flex-direction:column;gap:12px}
+.socials a{display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:700;transition:.25s}
+.socials a:hover{box-shadow:var(--glow);transform:translateX(4px);border-color:var(--rose);color:var(--blush)}
+form{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:24px;display:flex;flex-direction:column;gap:14px}
+label{font-weight:700;font-size:.9rem;color:var(--lav)}
+input,textarea{width:100%;margin-top:4px;padding:11px 16px;border-radius:18px;border:1.5px solid var(--line);background:var(--bg2);color:var(--text);font:inherit;outline:none;transition:.2s}
+input:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(224,163,184,.18)}
+textarea{min-height:110px;resize:vertical}
+.thanks{display:none;text-align:center;padding:30px 10px}
+.thanks h3{font-size:2.4rem;color:var(--blush)}
+footer{text-align:center;color:var(--muted);padding:20px 5vw 30px;font-size:.85rem}
+.sp{position:fixed;pointer-events:none;color:var(--blush);opacity:.5;animation:tw 4s ease-in-out infinite;z-index:0}
+@keyframes tw{50%{opacity:.1;transform:scale(.6)}}
+main,header,footer{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<span class="sp" style="top:18%;left:8%">✦</span><span class="sp" style="top:40%;right:6%;animation-delay:1s">♡</span>
+<span class="sp" style="top:70%;left:12%;animation-delay:2s">✧</span><span class="sp" style="top:85%;right:15%;animation-delay:.5s">☾</span>
+<header>
+  <a class="logo" href="#home">Your Name ✦</a>
+  <nav id="nav">
+    <a href="#home">Home</a><a href="#writeups">Write-ups</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#contacts">Contacts</a>
+  </nav>
+</header>
+<main>
+<section class="page" id="home">
+  <div class="hero">
+    <div class="moon">☾</div>
+    <h1>Your Name</h1>
+    <div class="tag-line">building cool things after midnight ✧</div>
+    <p class="intro">Hi, I’m a [your field, e.g. cybersecurity student] who loves turning curiosity into something real.</p>
+    <div class="btns"><a class="btn fill" href="#projects">See my projects</a><a class="btn" href="#contacts">Say hi ♡</a></div>
+    <div class="into"><b>currently into…</b><span class="pill pk">🔐 CTFs</span><span class="pill">☕ oat milk lattes</span><span class="pill pk">🎧 lo-fi beats</span><span class="pill">📓 late-night journaling</span></div>
+  </div>
+  <div class="about">
+    <h3>about me ♡</h3>
+    <p>Replace this with your 2–3 sentence bio. Tell people what you’re studying or making, what gets you excited, and what you’re hoping to learn next. Keep it warm and a little bit you.</p>
+    <p style="margin-bottom:0;color:var(--muted)">When I’m not working, you’ll find me with a cozy playlist on, a cup of something warm, and way too many browser tabs open.</p>
+  </div>
+</section>
+
+<section class="page" id="writeups">
+  <h2 class="h2">Write-ups</h2><p class="sub">Notes, walkthroughs and things I figured out the hard way.</p>
+  <div class="filters" id="wf"></div><div class="grid" id="wg"></div>
+</section>
+
+<section class="page" id="projects">
+  <h2 class="h2">Projects</h2><p class="sub">Little experiments and bigger builds.</p>
+  <div class="grid" id="pg"></div>
+</section>
+
+<section class="page" id="achievements">
+  <h2 class="h2">Achievements</h2><p class="sub">Small wins and big milestones ✦</p>
+  <div class="timeline" id="at"></div>
+</section>
+
+<section class="page" id="contacts">
+  <h2 class="h2">Say hi ♡</h2><p class="sub">I’d love to hear from you. Collabs, questions, or just good music recs.</p>
+  <div class="cwrap">
+    <div class="socials">
+      <a href="mailto:you@example.com">💌 you@example.com</a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a href="https://github.com/" target="_blank" rel="noopener">🐙 GitHub</a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">📸 Instagram</a>
+      <a href="https://x.com/" target="_blank" rel="noopener">🕊️ X / Twitter</a>
+    </div>
+    <div>
+      <form id="cf">
+        <label>Name<input required placeholder="Your name"></label>
+        <label>Email<input type="email" required placeholder="you@example.com"></label>
+        <label>Message<textarea required placeholder="Write something sweet…"></textarea></label>
+        <button class="btn fill" type="submit">Send message ✦</button>
+      </form>
+      <div class="thanks card" id="ty"><h3>Thank you! ♡</h3><p>Your message is on its way. I’ll get back to you soon.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>made with ♡ under the moon · © Your Name</footer>
+<script>
+const W=[
+["Beginner’s Guide to Your First CTF","Mar 2026","What I wish I knew before my first capture-the-flag: tools, mindset and snacks.",["CTF","Beginner"]],
+["Cracking a Classic Crypto Challenge","Feb 2026","A step-by-step walkthrough of a substitution cipher challenge.",["CTF","Crypto"]],
+["My Cozy Dev Setup","Jan 2026","Terminal themes, fonts and the playlist that keeps me focused.",["Life","Tools"]],
+["Intro to Web Security Basics","Dec 2025","XSS, CSRF and SQLi explained without the jargon overload.",["Web","Beginner"]],
+["Journaling for Learning","Nov 2025","How a nightly notebook habit made me better at retaining new skills.",["Life"]],
+["Lab Notes: Setting Up a Home Lab","Oct 2025","Virtual machines, networking and breaking things safely.",["Tools","Web"]]];
+const P=[
+["Starlight Notes","A cozy markdown note-taking app with moon-phase themes.",["JavaScript","CSS","IndexedDB"]],
+["Packet Pal","A friendly network traffic visualizer for learning how data moves.",["Python","Scapy","Flask"]],
+["CTF Tracker","Track challenges, flags and write-ups for your team.",["React","Node","SQLite"]],
+["Mood Moon","A tiny mood journal that charts your month as moon phases.",["HTML","CSS","JS"]],
+["Password Sparkle","A strength checker that teaches you why a password is weak.",["TypeScript","Vite"]],
+["Lo-fi Radio","A pastel web player with sleepy playlists and a rain mode.",["Web Audio","Svelte"]]];
+const A=[
+["🏆","CTF Competition: Top 10","Oct 2026","Placed in the top 10 out of 300+ teams."],
+["📜","Security+ Certification","Aug 2026","Passed my first industry certification."],
+["🎓","Dean’s List","May 2026","Recognised for academic excellence."],
+["🚀","First Open-Source Contribution","Mar 2026","Had a pull request merged into a project I love."],
+["🎤","Spoke at a Student Tech Meetup","Jan 2026","Gave my first ever talk on web security basics."],
+["⭐","Scholarship Recipient","Sep 2025","Awarded a scholarship for women in tech."],
+["🌸","Started This Portfolio","Today","A little corner of the internet that’s all mine."]];
+const $=s=>document.querySelector(s);
+const pills=(a,c)=>a.map(t=>`<span class="pill ${c||''}">${t}</span>`).join('');
+let tag='All';
+function wr(){
+  const tags=['All',...new Set(W.flatMap(w=>w[3]))];
+  $('#wf').innerHTML=tags.map(t=>`<button class="${t===tag?'on':''}" data-t="${t}">${t}</button>`).join('');
+  $('#wg').innerHTML=W.filter(w=>tag==='All'||w[3].includes(tag)).map(w=>`<article class="card"><span class="date">${w[1]}</span><h3>${w[0]}</h3><p>${w[2]}</p><div class="tags">${pills(w[3])}</div><a class="more" href="https://example.com" target="_blank" rel="noopener">Read more →</a></article>`).join('');
+}
+$('#wf').addEventListener('click',e=>{const b=e.target.closest('button');if(b){tag=b.dataset.t;wr()}});
+wr();
+$('#pg').innerHTML=P.map(p=>`<article class="card"><h3>${p[0]}</h3><p>${p[1]}</p><div class="tags">${pills(p[2],'pk')}</div><div class="links"><a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a><a class="btn fill" href="https://example.com" target="_blank" rel="noopener">Demo</a></div></article>`).join('');
+$('#at').innerHTML=A.map(a=>`<div class="ach"><span class="ic">✦</span><span class="date">${a[2]}</span><h3>${a[0]} ${a[1]}</h3><p>${a[3]}</p></div>`).join('');
+$('#cf').addEventListener('submit',e=>{e.preventDefault();e.target.style.display='none';$('#ty').style.display='block'});
+const pages=['home','writeups','projects','achievements','contacts'];
+function route(){
+  let h=location.hash.slice(1);if(!pages.includes(h))h='home';
+  pages.forEach(p=>$('#'+p).classList.toggle('on',p===h));
+  document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+h));
+  window.scrollTo(0,0);
+}
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
